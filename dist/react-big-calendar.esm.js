@@ -1507,6 +1507,9 @@ var EventRow = /*#__PURE__*/function (_React$Component) {
   }]);
   return EventRow;
 }(React.Component);
+EventRow.propTypes = process.env.NODE_ENV !== "production" ? _objectSpread({
+  segments: PropTypes.array
+}, EventRowMixin.propTypes) : {};
 EventRow.defaultProps = _objectSpread({}, EventRowMixin.defaultProps);
 
 function endOfRange(_ref) {
@@ -2853,13 +2856,6 @@ var TimeSlotGroup = /*#__PURE__*/function (_Component) {
   }]);
   return TimeSlotGroup;
 }(Component);
-TimeSlotGroup.propTypes = process.env.NODE_ENV !== "production" ? {
-  renderSlot: PropTypes.func,
-  group: PropTypes.array.isRequired,
-  resource: PropTypes.any,
-  components: PropTypes.object,
-  getters: PropTypes.object
-} : {};
 
 function stringifyPercent(v) {
   return typeof v === 'string' ? v : v + '%';
@@ -3438,6 +3434,11 @@ var ResourceHeader = function ResourceHeader(_ref) {
   var label = _ref.label;
   return /*#__PURE__*/React.createElement(React.Fragment, null, label);
 };
+ResourceHeader.propTypes = process.env.NODE_ENV !== "production" ? {
+  label: PropTypes.node,
+  index: PropTypes.number,
+  resource: PropTypes.object
+} : {};
 
 var TimeGridHeader = /*#__PURE__*/function (_React$Component) {
   _inherits(TimeGridHeader, _React$Component);
@@ -4450,6 +4451,10 @@ var Toolbar = /*#__PURE__*/function (_React$Component) {
       return /*#__PURE__*/React.createElement("div", {
         className: "rbc-toolbar"
       }, /*#__PURE__*/React.createElement("span", {
+        className: "rbc-toolbar-label"
+      }, label), /*#__PURE__*/React.createElement("span", {
+        className: "rbc-btn-group rbc-toolbar-views"
+      }, this.viewNamesGroup(messages)), /*#__PURE__*/React.createElement("span", {
         className: "rbc-btn-group rbc-toolbar-navigate"
       }, /*#__PURE__*/React.createElement("button", {
         type: "button",
@@ -4461,11 +4466,7 @@ var Toolbar = /*#__PURE__*/function (_React$Component) {
         onClick: this.navigate.bind(null, navigate.NEXT)
       }, /*#__PURE__*/React.createElement(HiChevronRight, {
         size: 20
-      }))), /*#__PURE__*/React.createElement("span", {
-        className: "rbc-toolbar-label"
-      }, label), /*#__PURE__*/React.createElement("span", {
-        className: "rbc-btn-group rbc-toolbar-views"
-      }, this.viewNamesGroup(messages)));
+      }))));
     }
   }, {
     key: "viewNamesGroup",

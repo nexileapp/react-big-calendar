@@ -13,6 +13,12 @@ class Toolbar extends React.Component {
 
     return (
       <div className="rbc-toolbar">
+        <span className="rbc-toolbar-label">{label}</span>
+
+        <span className="rbc-btn-group rbc-toolbar-views">
+          {this.viewNamesGroup(messages)}
+        </span>
+
         <span className="rbc-btn-group rbc-toolbar-navigate">
           <button
             type="button"
@@ -26,12 +32,6 @@ class Toolbar extends React.Component {
           >
             <HiChevronRight size={20} />
           </button>
-        </span>
-
-        <span className="rbc-toolbar-label">{label}</span>
-
-        <span className="rbc-btn-group rbc-toolbar-views">
-          {this.viewNamesGroup(messages)}
         </span>
       </div>
     )

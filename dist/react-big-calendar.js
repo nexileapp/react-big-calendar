@@ -40353,9 +40353,6 @@
       "aria-sort": "none"
     }, label);
   };
-  Header.propTypes = "development" !== "production" ? {
-    label: propTypesExports.node
-  } : {};
 
   var DateHeader = function DateHeader(_ref) {
     var label = _ref.label,
@@ -43495,6 +43492,10 @@
         return /*#__PURE__*/React.createElement("div", {
           className: "rbc-toolbar"
         }, /*#__PURE__*/React.createElement("span", {
+          className: "rbc-toolbar-label"
+        }, label), /*#__PURE__*/React.createElement("span", {
+          className: "rbc-btn-group rbc-toolbar-views"
+        }, this.viewNamesGroup(messages)), /*#__PURE__*/React.createElement("span", {
           className: "rbc-btn-group rbc-toolbar-navigate"
         }, /*#__PURE__*/React.createElement("button", {
           type: "button",
@@ -43506,11 +43507,7 @@
           onClick: this.navigate.bind(null, navigate.NEXT)
         }, /*#__PURE__*/React.createElement(HiChevronRight, {
           size: 20
-        }))), /*#__PURE__*/React.createElement("span", {
-          className: "rbc-toolbar-label"
-        }, label), /*#__PURE__*/React.createElement("span", {
-          className: "rbc-btn-group rbc-toolbar-views"
-        }, this.viewNamesGroup(messages)));
+        }))));
       }
     }, {
       key: "viewNamesGroup",
