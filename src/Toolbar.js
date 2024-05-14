@@ -2,6 +2,7 @@ import PropTypes from 'prop-types'
 import React from 'react'
 import clsx from 'clsx'
 import { navigate } from './utils/constants'
+import { HiChevronLeft, HiChevronRight } from 'react-icons/hi'
 
 class Toolbar extends React.Component {
   render() {
@@ -12,30 +13,26 @@ class Toolbar extends React.Component {
 
     return (
       <div className="rbc-toolbar">
-        <span className="rbc-btn-group">
-          <button
-            type="button"
-            onClick={this.navigate.bind(null, navigate.TODAY)}
-          >
-            {messages.today}
-          </button>
+        <span className="rbc-btn-group rbc-toolbar-navigate">
           <button
             type="button"
             onClick={this.navigate.bind(null, navigate.PREVIOUS)}
           >
-            {messages.previous}
+            <HiChevronLeft size={20} />
           </button>
           <button
             type="button"
             onClick={this.navigate.bind(null, navigate.NEXT)}
           >
-            {messages.next}
+            <HiChevronRight size={20} />
           </button>
         </span>
 
         <span className="rbc-toolbar-label">{label}</span>
 
-        <span className="rbc-btn-group">{this.viewNamesGroup(messages)}</span>
+        <span className="rbc-btn-group rbc-toolbar-views">
+          {this.viewNamesGroup(messages)}
+        </span>
       </div>
     )
   }
